@@ -1,0 +1,85 @@
+{
+  "skill_name": "lead-magnets",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "We sell project management software for marketing teams. We have a blog with decent traffic but almost no email signups. What lead magnet should we create?",
+      "expected_output": "Should check for product-marketing-context.md first. Should ask clarifying questions about audience stage, existing content, and goals if context is missing. Should recommend specific lead magnet formats suited to the audience (marketing teams, PM software). Should match format to buyer stage — top-of-funnel visitors likely need awareness-stage content. Should provide a specific recommendation (e.g. checklist, template, or guide) with rationale. Should address gating strategy and delivery. Should outline a content outline or structure for the recommended format. Should reference related skills (email-sequence for nurture, page-cro for landing page).",
+      "assertions": [
+        "Checks for product-marketing-context.md",
+        "Recommends a specific lead magnet format with rationale",
+        "Matches format to buyer stage",
+        "Addresses gating strategy",
+        "Provides a content outline or scope",
+        "References at least one related skill"
+      ],
+      "files": []
+    },
+    {
+      "id": 2,
+      "prompt": "What's the difference between a checklist, cheat sheet, and template? Which should I use?",
+      "expected_output": "Should explain the distinctions between checklist (process steps, quick wins), cheat sheet (reference material, shortcuts), and template (repeatable workflows, documents). Should use the lead magnet types table from the skill. Should ask or infer the user's goal and audience stage to recommend the best fit. Should note effort levels and time to create for each. Should not recommend all three — should guide toward a specific choice based on use case.",
+      "assertions": [
+        "Explains difference between checklist, cheat sheet, and template",
+        "References effort level and time to create",
+        "Asks about or infers audience stage and goal",
+        "Recommends a specific format rather than listing all three equally",
+        "Applies buyer stage matching logic"
+      ],
+      "files": []
+    },
+    {
+      "id": 3,
+      "prompt": "Should we gate our ebook behind a form or just make it free to read? We want leads but we also want SEO value from the content.",
+      "expected_output": "Should apply the gating strategy framework from the skill. Should present gating options: full gate, partial gate (preview + full version), ungated + optional, content upgrade. Should address the SEO vs. lead capture tradeoff directly — ungated content gets indexed and drives SEO, gated content captures leads but loses SEO value. Should recommend partial gating as a middle ground: ungated preview or summary for SEO, full version behind email. Should advise asking for minimum fields (email only) to maximize conversion. Should reference form-cro and popup-cro for implementation.",
+      "assertions": [
+        "Presents the gating options spectrum",
+        "Addresses the SEO vs. lead capture tradeoff",
+        "Recommends partial gating as a middle-ground approach",
+        "Advises minimum form fields",
+        "References form-cro or popup-cro for implementation"
+      ],
+      "files": []
+    },
+    {
+      "id": 4,
+      "prompt": "I want to turn our most popular blog post into a lead magnet. It's a 2,000-word guide on how to run a competitive analysis. What's the best way to do this?",
+      "expected_output": "Should recognize this as a content upgrade opportunity. Should recommend creating a post-specific content upgrade rather than a generic lead magnet. Should suggest appropriate formats: condensed checklist version of the analysis steps, a blank spreadsheet template for conducting the analysis, or a swipe file of competitive analysis examples. Should explain that content upgrades convert 2-5x better than generic CTAs. Should advise gating the upgrade inline within the post (not just sidebar). Should reference the landing page and delivery section — delivery via email is recommended to verify the email. Should note that writing the actual content falls under the copywriting skill.",
+      "assertions": [
+        "Identifies this as a content upgrade use case",
+        "Suggests relevant formats (checklist, template, or swipe file)",
+        "Explains the conversion advantage of content upgrades",
+        "Advises inline CTA placement within the post",
+        "Addresses delivery method",
+        "Notes copywriting skill for writing the content"
+      ],
+      "files": []
+    },
+    {
+      "id": 5,
+      "prompt": "We launched a free checklist 3 months ago and it got 200 downloads but none of those leads have converted to trials. What's going wrong?",
+      "expected_output": "Should diagnose lead quality vs. lead quantity issues. Should apply the lead quality signals from the skill: check if the checklist attracted the right ICP, whether email engagement is high or low, whether leads match ICP demographics. Should identify likely root causes: checklist may be too top-of-funnel and attracting non-buyers, no nurture sequence after download, misalignment between checklist topic and product. Should recommend solutions: audit the checklist topic for ICP alignment, check if there is a nurture sequence, consider a more decision-stage lead magnet for conversion. Should reference email-sequence for setting up nurture and the lead-to-customer rate benchmark (1-5% B2B).",
+      "assertions": [
+        "Diagnoses lead quality vs. quantity issue",
+        "Applies lead quality signals framework",
+        "Identifies potential root causes (funnel stage mismatch, no nurture, ICP misalignment)",
+        "References email-sequence for nurture setup",
+        "References the lead-to-customer rate benchmark",
+        "Recommends specific corrective actions"
+      ],
+      "files": []
+    },
+    {
+      "id": 6,
+      "prompt": "We want to create an ROI calculator that shows how much time our software saves. Should I use the lead-magnets skill or free-tool-strategy for this?",
+      "expected_output": "Should recognize that an interactive calculator is an interactive tool, not a downloadable lead magnet. Should redirect to or recommend the free-tool-strategy skill for this use case. Should explain the distinction: lead-magnets covers static/downloadable content (checklists, ebooks, templates), while free-tool-strategy covers interactive tools (calculators, graders, analyzers). May note that free-tool-strategy covers lead capture gating for the calculator output. Should not attempt to plan the calculator using lead magnet frameworks.",
+      "assertions": [
+        "Identifies ROI calculator as an interactive tool, not a static lead magnet",
+        "Redirects to free-tool-strategy skill",
+        "Explains the distinction between lead-magnets and free-tool-strategy",
+        "Does not attempt to apply lead magnet frameworks to the calculator"
+      ],
+      "files": []
+    }
+  ]
+}
