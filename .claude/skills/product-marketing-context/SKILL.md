@@ -239,3 +239,15 @@ After gathering information, create `.agents/product-marketing-context.md` with 
 - **Ask for examples**: "Can you give me an example?" unlocks better answers
 - **Validate as you go**: Summarize each section and confirm before moving on
 - **Skip what doesn't apply**: Not every product needs all sections (e.g., Personas for B2C)
+
+## Related Skills
+
+Run these after setting up your product marketing context — they'll automatically use it:
+
+- **copywriting**: Write landing pages, headlines, or any marketing copy grounded in your positioning
+- **content-strategy**: Build a content plan aligned to your audience and pain points
+- **launch-strategy**: Plan a product or feature launch using your differentiation and audience
+- **paid-ads**: Create ad campaigns with targeting and messaging drawn from your context
+- **marketing-ideas**: Generate marketing experiments and channel ideas tailored to your product
+- **competitor-alternatives**: Build comparison pages using your competitive landscape and differentiators
+- **email-sequence**: Write nurture or onboarding sequences in your brand voice
