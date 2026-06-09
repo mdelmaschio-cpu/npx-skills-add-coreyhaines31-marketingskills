@@ -9,12 +9,14 @@ A Claude Code skills plugin package (`marketingskills`) by Corey Haines — 33 m
 ## Repository Structure
 
 ```
-.claude-plugin/marketplace.json   # Plugin manifest — lists all skills and their paths
+.claude-plugin/marketplace.json   # Plugin manifest — entry point for `npx skills add`
 .claude/skills/<skill-name>/
   SKILL.md                        # Skill definition (YAML frontmatter + markdown instructions)
   evals/evals.json                # Test cases for the skill
   references/<name>.md            # Optional supporting reference documents
 ```
+
+There is no build toolchain, package.json, or test runner. All content is markdown and JSON.
 
 ## Skill File Format
 
@@ -32,7 +34,7 @@ metadata:
 ...
 ```
 
-The `description` field is the routing signal: it determines when Claude selects this skill. It must cover both explicit invocation and natural-language trigger phrases.
+The `description` field is the routing signal: it determines when Claude selects this skill. It must cover both explicit invocation (`/skill-name`) and natural-language trigger phrases. Current version convention: `1.1.0` for all updated skills; increment the minor version on substantive changes.
 
 ## Key Architectural Pattern: product-marketing-context
 
@@ -48,9 +50,28 @@ If `.agents/product-marketing-context.md` exists (or `.claude/product-marketing-
 ## Adding a New Skill
 
 1. Create `.claude/skills/<skill-name>/` with `SKILL.md`, `evals/evals.json`, and optionally `references/`
-2. Register it in `.claude-plugin/marketplace.json` under `plugins[0].skills`
+2. Register it in `.claude-plugin/marketplace.json` under `plugins[0].skills` as `"./skills/<skill-name>"`
 3. `SKILL.md` should follow the existing structure: initial assessment → core principles → frameworks → output format → related skills
-4. `evals/evals.json` format: `{ "skill_name": "...", "evals": [{ "id": N, "prompt": "...", "expected_output": "...", "assertions": [...], "files": [] }] }`
+4. `evals/evals.json` format:
+   ```json
+   {
+     "skill_name": "skill-name",
+     "evals": [
+       {
+         "id": 1,
+         "prompt": "...",
+         "expected_output": "Prose description of what the skill should do",
+         "assertions": [
+           "Checks for product-marketing-context.md",
+           "Does X",
+           "Does Y"
+         ],
+         "files": []
+       }
+     ]
+   }
+   ```
+   Assertions are behavioral checks written as short declarative strings. `files` is an array of file paths to pre-populate in the eval context (usually empty).
 5. Reference documents go in `references/` and are linked from `SKILL.md` with relative paths like `[references/guide.md](references/guide.md)`
 
 ## Cross-Skill References
@@ -65,4 +86,8 @@ Skill boundary rules matter: e.g., `copywriting` writes new copy, `copy-editing`
 
 ## Plugin Manifest
 
-`.claude-plugin/marketplace.json` is the entry point for `npx skills add`. When adding or removing skills, update the `plugins[0].skills` array. The `source` field (`"./"`) is the base path for skill resolution.
+`.claude-plugin/marketplace.json` is the entry point for `npx skills add`. Key fields:
+
+- `plugins[0].source`: `"./"` — base path for skill resolution; skill paths like `"./skills/ab-test-setup"` resolve relative to this
+- `plugins[0].strict`: `false` — skills can trigger on natural language, not only explicit `/skill-name` invocation
+- `plugins[0].skills`: ordered array of skill paths; add new skills here when creating them
